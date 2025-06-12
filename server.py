@@ -44,4 +44,9 @@ def receive():
         clients.append(client) 
         print(f'alias is {alias}'.encode('utf-8'))
         client.send('You are nw Connecte'.encode('utf-8'))
+
+        thread= threading.thread(target = handle_client, args=(client,))
+        thread.start()
         
+if __name__ == "__main__":
+    receive()
