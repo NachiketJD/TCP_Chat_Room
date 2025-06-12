@@ -6,3 +6,11 @@ port = 59000
 s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((host, port))
 s.listen()
+
+clients =[]
+aliases=[]
+
+def broadcast(message):
+    for client in clients:
+        client.send(message)
+    
