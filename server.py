@@ -45,7 +45,7 @@ def receive():
         print(f'alias is {alias}'.encode('utf-8'))
         client.send('You are nw Connecte'.encode('utf-8'))
 
-        thread= threading.thread(target = handle_client, args=(client,))
+        thread= threading.Thread(target = handle_client, args=(client,))
         thread.start()
         
 if __name__ == "__main__":
