@@ -23,4 +23,7 @@ def clinet_send():
         client.send(message.encode('utf-8')) #this line, sends the message to the server and the server will send it to all connected clients this is done using the broadcast function in the server side 
 
 recieve_thread = threading.Thread(target=client_recieve)# this line of code, creates a new thread that will run the client_recieve function and this function will run in the background while the main thread is running the clinet_send function this is done using the threading module in python.
-recieve_thread.start() # this line of code, starts the recieve_thread
+recieve_thread.start() # this line of code, starts the recieve_thread and this will start the client_recieve function running in the background.
+
+send_thread = threading.Thread(target=clinet_send)
+send_thread.start() # this line of code, starts the send_thread and this will start the clin
