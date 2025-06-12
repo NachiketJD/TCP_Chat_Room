@@ -14,3 +14,15 @@ def broadcast(message):
     for client in clients:
         client.send(message)
     
+def handle_client(client):
+    while True:
+        try:
+            message = client.recv(1024)
+            broadcast(message)
+        except:
+            index = clients.index(client) #index method, searches for a specified value in our case, the index and returns it index
+            clients.remove(client)
+            client.close()
+            alias= aliases[index]
+            broadcast(f'{alias} left the chat!'.encode())
+            aliases.remove(alias)
