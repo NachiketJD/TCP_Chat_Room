@@ -16,3 +16,9 @@ def client_recieve():
         except:
             print('An error occurred')
             break
+
+def clinet_send():
+    while True:
+        message = f'{alias}: {input("")}'    # get message from user and send it to server 
+        client.send(message.encode('utf-8')) #this line, sends the message to the server and the server will send it to all connected clients this is done using the broadcast function in the server side 
+        
